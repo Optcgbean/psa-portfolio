@@ -581,7 +581,7 @@
                 <tr data-index="${index}">
                     <td>
                         <img class="card-thumb" 
-                             src="../psa_images/${card.image}" 
+                             src="psa_images/${card.image}" 
                              alt="${card.name}"
                              onclick="openModal(${index})">
                     </td>
@@ -665,7 +665,7 @@
 
         function updateModal() {
             const card = filteredCards[currentModalIndex];
-            document.getElementById('modalImage').src = `../psa_images/${card.image}`;
+            document.getElementById('modalImage').src = `psa_images/${card.image}`;
             document.getElementById('modalTitle').textContent = card.name;
             document.getElementById('modalDetails').textContent = `Cert #${card.cert} | ${card.grade} | Market: HK$${card.market.toLocaleString()}`;
             document.getElementById('modalCounter').textContent = `${currentModalIndex + 1} / ${filteredCards.length}`;
