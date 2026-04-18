@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSA Card Portfolio | Monkey D Luffy Collection</title>
+    <style>
+        :root {
+            --bg-dark: #0d1117;
+            --bg-card: #161b22;
+            --bg-hover: #21262d;
+            --border: #30363d;
+            --text-primary: #e6edf3;
+            --text-secondary: #8b949e;
+            --gold: #ffd700;
+            --gold-dim: #b8860b;
+            --green: #3fb950;
+            --red: #f85149;
+            --blue: #58a6ff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            border-bottom: 2px solid var(--gold-dim);
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dim) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+        
+        /* Summary Cards */
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .summary-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        
+        .summary-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--gold-dim);
+        }
+        
+        .summary-card.profit {
+            border-color: var(--green);
+        }
+        
+        .summary-card.loss {
+            border-color: var(--red);
+        }
+        
+        .summary-label {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+        
+        .summary-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .summary-card.profit .summary-value {
+            color: var(--green);
+        }
+        
+        .summary-card.loss .summary-value {
+            color: var(--red);
+        }
+        
+        /* Search */
+        .search-container {
+            margin-bottom: 20px;
+        }
+        
+        #searchInput {
+            width: 100%;
+            padding: 12px 20px;
+            font-size: 1rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-primary);
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        
+        #searchInput:focus {
+            border-color: var(--gold);
+        }
+        
+        #searchInput::placeholder {
+            color: var(--text-secondary);
+        }
+        
+        /* Table */
+        .table-container {
+            overflow-x: auto;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: var(--bg-card);
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+        
+        th {
+            background: var(--bg-hover);
+            padding: 15px 12px;
+            text-align: left;
+            font-weight: 600;
+            color: var(--gold);
+            cursor: pointer;
+            user-select: none;
+            position: sticky;
+            top: 0;
+            white-space: nowrap;
+        }
+        
+        th:hover {
+            background: #2d333b;
+        }
+        
+        th::after {
+            content: ' ↕';
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+        }
+        
+        th.sort-asc::after {
+            content: ' ↑';
+            color: var(--gold);
+        }
+        
+        th.sort-desc::after {
+            content: ' ↓';
+            color: var(--gold);
+        }
+        
+        td {
+            padding: 12px;
+            border-bottom: 1px solid var(--border);
+            vertical-align: middle;
+        }
+        
+        tr:hover td {
+            background: var(--bg-hover);
+        }
+        
+        .card-img {
+            width: 80px;
+            height: 112px;
+            object-fit: cover;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: transform 0.2s;
+            border: 1px solid var(--border);
+        }
+        
+        .card-img:hover {
+            transform: scale(1.1);
+            border-color: var(--gold);
+        }
+        
+        .card-name {
+            font-weight: 500;
+            max-width: 300px;
+            line-height: 1.4;
+        }
+        
+        .cert-number {
+            font-family: monospace;
+            color: var(--blue);
+            font-size: 0.85rem;
+        }
+        
+        .grade {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .grade.psa10 {
+            background: rgba(63, 185, 80, 0.2);
+            color: var(--green);
+            border: 1px solid var(--green);
+        }
+        
+        .grade.mint9 {
+            background: rgba(88, 166, 255, 0.2);
+            color: var(--blue);
+            border: 1px solid var(--blue);
+        }
+        
+        .price {
+            font-family: 'SF Mono', Monaco, monospace;
+            font-weight: 600;
+        }
+        
+        .price-profit {
+            color: var(--green);
+        }
+        
+        .price-loss {
+            color: var(--red);
+        }
+        
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal.active {
+            display: flex;
+        }
+        
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 12px;
+            border: 2px solid var(--gold);
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 2rem;
+            color: var(--text-primary);
+            cursor: pointer;
+        }
+        
+        .modal-close:hover {
+            color: var(--gold);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border);
+            margin-top: 40px;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .summary-value {
+                font-size: 1.4rem;
+            }
+            
+            .card-img {
+                width: 60px;
+                height: 84px;
+            }
+            
+            td, th {
+                padding: 8px;
+                font-size: 0.8rem;
+            }
+            
+            .card-name {
+                max-width: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏴‍☠️ PSA Card Portfolio</h1>
+            <p class="subtitle">Monkey D Luffy Collection | 39 Cards | Last Updated: April 18, 2026</p>
+        </header>
+        
+        <div class="summary-grid">
+            <div class="summary-card">
+                <div class="summary-label">Total Cost (USD)</div>
+                <div class="summary-value">$14,890</div>
+            </div>
+            <div class="summary-card">
+                <div class="summary-label">Total Cost (HKD)</div>
+                <div class="summary-value">$116,142</div>
+            </div>
+            <div class="summary-card">
+                <div class="summary-label">Market Value (HKD)</div>
+                <div class="summary-value">$133,485</div>
+            </div>
+            <div class="summary-card profit">
+                <div class="summary-label">Profit/Loss (HKD)</div>
+                <div class="summary-value">+$17,343</div>
+            </div>
+            <div class="summary-card profit">
+                <div class="summary-label">Return %</div>
+                <div class="summary-value">+14.9%</div>
+            </div>
+        </div>
+        
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="🔍 Search cards by name...">
+        </div>
+        
+        <div class="table-container">
+            <table id="cardTable">
+                <thead>
+                    <tr>
+                        <th onclick="sortTable(0)">Image</th>
+                        <th onclick="sortTable(1)">Card Name</th>
+                        <th onclick="sortTable(2)">Cert #</th>
+                        <th onclick="sortTable(3)">Grade</th>
+                        <th onclick="sortTable(4)">Cost (USD)</th>
+                        <th onclick="sortTable(5)">Cost (HKD)</th>
+                        <th onclick="sortTable(6)">Market (HKD)</th>
+                        <th onclick="sortTable(7)">P/L (HKD)</th>
+                    </tr>
+                </thead>
+                <tbody>
