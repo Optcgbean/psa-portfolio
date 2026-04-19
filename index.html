@@ -13,243 +13,241 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            background-color: #0d1117;
-            color: #c9d1d9;
-            line-height: 1.6;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             min-height: 100vh;
+            color: #e2e8f0;
+            padding: 20px;
         }
 
         .container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 20px;
         }
 
-        header {
+        h1 {
             text-align: center;
-            padding: 40px 0;
-            border-bottom: 1px solid #30363d;
-            margin-bottom: 30px;
-        }
-
-        header h1 {
-            color: #ffd700;
             font-size: 2.5rem;
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
-
-        header p {
-            color: #8b949e;
-            font-size: 1.1rem;
+            margin-bottom: 30px;
+            background: linear-gradient(90deg, #60a5fa, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(96, 165, 250, 0.3);
         }
 
         /* Summary Cards */
         .summary-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
+            gap: 15px;
             margin-bottom: 30px;
         }
 
         .summary-card {
-            background: linear-gradient(135deg, #161b22 0%, #21262d 100%);
-            border: 1px solid #30363d;
+            background: rgba(30, 41, 59, 0.8);
+            backdrop-filter: blur(10px);
             border-radius: 12px;
-            padding: 24px;
+            padding: 20px;
+            border: 1px solid rgba(96, 165, 250, 0.2);
             text-align: center;
-            transition: transform 0.2s, border-color 0.2s;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .summary-card:hover {
-            transform: translateY(-4px);
-            border-color: #ffd700;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(96, 165, 250, 0.2);
         }
 
-        .summary-card .label {
-            color: #8b949e;
+        .summary-card h3 {
             font-size: 0.85rem;
+            color: #94a3b8;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 8px;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
         }
 
         .summary-card .value {
-            color: #ffd700;
             font-size: 1.8rem;
             font-weight: 700;
-        }
-
-        .summary-card .sub-value {
-            color: #6e7681;
-            font-size: 0.9rem;
-            margin-top: 4px;
+            color: #60a5fa;
         }
 
         .summary-card.profit .value {
-            color: #3fb950;
+            color: #4ade80;
         }
 
         .summary-card.loss .value {
-            color: #f85149;
+            color: #f87171;
         }
 
-        .summary-card.return-positive .value {
-            color: #3fb950;
+        .summary-card.return .value {
+            color: #fbbf24;
         }
 
-        .summary-card.return-negative .value {
-            color: #f85149;
-        }
-
-        /* Search Bar */
+        /* Search */
         .search-container {
-            margin-bottom: 24px;
+            margin-bottom: 20px;
         }
 
-        .search-box {
+        .search-input {
             width: 100%;
-            max-width: 500px;
-            padding: 14px 20px;
+            max-width: 400px;
+            padding: 12px 20px;
             font-size: 1rem;
-            background: #161b22;
-            border: 1px solid #30363d;
+            border: 1px solid rgba(96, 165, 250, 0.3);
             border-radius: 8px;
-            color: #c9d1d9;
-            transition: border-color 0.2s;
-        }
-
-        .search-box:focus {
+            background: rgba(15, 23, 42, 0.8);
+            color: #e2e8f0;
             outline: none;
-            border-color: #ffd700;
+            transition: border-color 0.3s, box-shadow 0.3s;
         }
 
-        .search-box::placeholder {
-            color: #6e7681;
+        .search-input:focus {
+            border-color: #60a5fa;
+            box-shadow: 0 0 15px rgba(96, 165, 250, 0.3);
+        }
+
+        .search-input::placeholder {
+            color: #64748b;
         }
 
         /* Table */
-        .table-container {
+        .table-wrapper {
+            background: rgba(30, 41, 59, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            border: 1px solid rgba(96, 165, 250, 0.2);
+            overflow: hidden;
             overflow-x: auto;
-            border: 1px solid #30363d;
-            border-radius: 12px;
-            background: #161b22;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
+            font-size: 0.9rem;
         }
 
         thead {
-            background: #21262d;
+            background: rgba(15, 23, 42, 0.9);
         }
 
         th {
             padding: 16px 12px;
             text-align: left;
             font-weight: 600;
-            color: #ffd700;
-            font-size: 0.9rem;
+            color: #60a5fa;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
             cursor: pointer;
             user-select: none;
-            transition: background 0.2s;
             white-space: nowrap;
+            transition: background 0.2s;
         }
 
         th:hover {
-            background: #30363d;
+            background: rgba(96, 165, 250, 0.1);
         }
 
         th .sort-indicator {
-            margin-left: 6px;
-            color: #6e7681;
-            font-size: 0.75rem;
+            margin-left: 5px;
+            opacity: 0.5;
         }
 
         th.sort-asc .sort-indicator::after {
-            content: " ▲";
-            color: #ffd700;
+            content: '▲';
+            opacity: 1;
         }
 
         th.sort-desc .sort-indicator::after {
-            content: " ▼";
-            color: #ffd700;
+            content: '▼';
+            opacity: 1;
         }
 
         td {
             padding: 12px;
-            border-top: 1px solid #30363d;
-            vertical-align: middle;
+            border-bottom: 1px solid rgba(96, 165, 250, 0.1);
         }
 
-        tbody tr {
-            transition: background 0.2s;
+        tr:hover {
+            background: rgba(96, 165, 250, 0.05);
         }
 
-        tbody tr:hover {
-            background: #1c2128;
-        }
-
-        /* Card Image */
         .card-thumb {
-            width: 80px;
-            height: 112px;
+            width: 60px;
+            height: 80px;
             object-fit: cover;
             border-radius: 6px;
             cursor: pointer;
             transition: transform 0.2s, box-shadow 0.2s;
-            border: 1px solid #30363d;
+            border: 2px solid rgba(96, 165, 250, 0.3);
         }
 
         .card-thumb:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 20px rgba(255, 215, 0, 0.3);
+            transform: scale(1.1);
+            box-shadow: 0 5px 20px rgba(96, 165, 250, 0.4);
         }
 
-        /* Grade Badge */
-        .grade {
-            display: inline-block;
-            padding: 4px 10px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-
-        .grade-psa10 {
-            background: #238636;
-            color: #fff;
-        }
-
-        .grade-mint9 {
-            background: #1f6feb;
-            color: #fff;
-        }
-
-        /* Text styling */
-        .cert-number {
-            font-family: 'SF Mono', Monaco, monospace;
-            font-size: 0.85rem;
-            color: #8b949e;
+        .no-image {
+            width: 60px;
+            height: 80px;
+            background: rgba(100, 116, 139, 0.3);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            color: #64748b;
+            border: 2px dashed rgba(100, 116, 139, 0.5);
         }
 
         .card-name {
             font-weight: 500;
-            color: #c9d1d9;
+            color: #f1f5f9;
         }
 
-        .currency {
+        .cert-number {
+            font-family: 'SF Mono', Monaco, monospace;
+            font-size: 0.8rem;
+            color: #94a3b8;
+        }
+
+        .grade {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.8rem;
+        }
+
+        .grade-10 {
+            background: rgba(74, 222, 128, 0.2);
+            color: #4ade80;
+        }
+
+        .grade-9 {
+            background: rgba(251, 191, 36, 0.2);
+            color: #fbbf24;
+        }
+
+        .price {
+            font-weight: 600;
             font-family: 'SF Mono', Monaco, monospace;
         }
 
-        .positive {
-            color: #3fb950;
+        .price-cost {
+            color: #94a3b8;
         }
 
-        .negative {
-            color: #f85149;
+        .price-market {
+            color: #60a5fa;
+        }
+
+        .profit {
+            color: #4ade80;
+        }
+
+        .loss {
+            color: #f87171;
         }
 
         /* Modal */
@@ -260,10 +258,11 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.95);
+            background: rgba(0, 0, 0, 0.9);
             z-index: 1000;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
+            padding: 20px;
         }
 
         .modal.active {
@@ -276,11 +275,56 @@
             max-height: 90%;
         }
 
-        .modal-image {
+        .modal-img {
             max-width: 100%;
             max-height: 85vh;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            background: none;
+            border: none;
+            color: #e2e8f0;
+            font-size: 2rem;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        .modal-close:hover {
+            opacity: 1;
+        }
+
+        .modal-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(30, 41, 59, 0.8);
+            border: none;
+            color: #e2e8f0;
+            font-size: 1.5rem;
+            padding: 15px 20px;
+            cursor: pointer;
             border-radius: 8px;
-            box-shadow: 0 0 40px rgba(255, 215, 0, 0.2);
+            opacity: 0.7;
+            transition: opacity 0.2s, background 0.2s;
+        }
+
+        .modal-nav:hover {
+            opacity: 1;
+            background: rgba(96, 165, 250, 0.3);
+        }
+
+        .modal-prev {
+            left: -60px;
+        }
+
+        .modal-next {
+            right: -60px;
         }
 
         .modal-info {
@@ -289,109 +333,17 @@
             left: 0;
             right: 0;
             text-align: center;
-            color: #c9d1d9;
+            color: #94a3b8;
         }
 
-        .modal-info h3 {
-            color: #ffd700;
-            margin-bottom: 4px;
-        }
-
-        .modal-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(255, 215, 0, 0.9);
-            color: #0d1117;
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            font-size: 1.5rem;
-            cursor: pointer;
-            transition: background 0.2s, transform 0.2s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-nav:hover {
-            background: #ffd700;
-            transform: translateY(-50%) scale(1.1);
-        }
-
-        .modal-nav.prev {
-            left: -70px;
-        }
-
-        .modal-nav.next {
-            right: -70px;
-        }
-
-        .modal-close {
-            position: absolute;
-            top: -50px;
-            right: 0;
-            background: none;
-            border: none;
-            color: #8b949e;
-            font-size: 2rem;
-            cursor: pointer;
-            transition: color 0.2s;
-        }
-
-        .modal-close:hover {
-            color: #ffd700;
-        }
-
-        .modal-counter {
-            position: absolute;
-            top: -40px;
-            left: 0;
-            color: #8b949e;
-            font-size: 0.9rem;
-        }
-
-        /* No results */
-        .no-results {
-            text-align: center;
-            padding: 60px 20px;
-            color: #8b949e;
-        }
-
-        .no-results h3 {
-            color: #c9d1d9;
-            margin-bottom: 8px;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 40px 0;
-            border-top: 1px solid #30363d;
-            margin-top: 40px;
-            color: #6e7681;
-            font-size: 0.9rem;
-        }
-
-        footer .exchange-rate {
-            color: #ffd700;
-            margin-top: 8px;
-        }
-
-        /* Responsive */
+        /* Mobile */
         @media (max-width: 768px) {
-            header h1 {
+            h1 {
                 font-size: 1.8rem;
             }
 
             .summary-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 12px;
-            }
-
-            .summary-card {
-                padding: 16px;
             }
 
             .summary-card .value {
@@ -400,207 +352,230 @@
 
             th, td {
                 padding: 10px 8px;
-                font-size: 0.85rem;
-            }
-
-            .card-thumb {
-                width: 60px;
-                height: 84px;
-            }
-
-            .modal-nav.prev {
-                left: 10px;
-            }
-
-            .modal-nav.next {
-                right: 10px;
-            }
-
-            .modal-nav {
-                width: 40px;
-                height: 40px;
-                font-size: 1.2rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 12px;
-            }
-
-            .summary-grid {
-                grid-template-columns: 1fr;
-            }
-
-            th, td {
-                padding: 8px 6px;
                 font-size: 0.8rem;
             }
 
-            .hide-mobile {
-                display: none;
+            .card-thumb, .no-image {
+                width: 45px;
+                height: 60px;
             }
+
+            .modal-prev {
+                left: 10px;
+            }
+
+            .modal-next {
+                right: 10px;
+            }
+
+            .cert-number {
+                font-size: 0.7rem;
+            }
+        }
+
+        /* Hidden rows for search */
+        .hidden {
+            display: none !important;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            color: #64748b;
+            font-size: 0.85rem;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>🔥 PSA Card Portfolio</h1>
-            <p>One Piece & Pokemon Trading Card Collection</p>
-        </header>
+        <h1>🏴‍☠️ PSA Card Portfolio</h1>
 
+        <!-- Summary Cards -->
         <div class="summary-grid">
             <div class="summary-card">
-                <div class="label">Total Cards</div>
-                <div class="value" id="total-cards">25</div>
+                <h3>Total Cards</h3>
+                <div class="value" id="totalCards">0</div>
             </div>
             <div class="summary-card">
-                <div class="label">Total Cost</div>
-                <div class="value" id="total-cost-usd">$7,420</div>
-                <div class="sub-value" id="total-cost-hkd">HK$57,876</div>
+                <h3>Total Cost (HKD)</h3>
+                <div class="value" id="totalCost">$0</div>
             </div>
             <div class="summary-card">
-                <div class="label">Market Value</div>
-                <div class="value" id="total-market">HK$89,890</div>
+                <h3>Total Market Value</h3>
+                <div class="value" id="totalMarket">$0</div>
             </div>
             <div class="summary-card profit">
-                <div class="label">Profit / Loss</div>
-                <div class="value" id="profit-loss">+HK$32,014</div>
+                <h3>Profit/Loss</h3>
+                <div class="value" id="totalProfit">$0</div>
             </div>
-            <div class="summary-card return-positive">
-                <div class="label">Return %</div>
-                <div class="value" id="return-pct">+55.32%</div>
+            <div class="summary-card return">
+                <h3>Return %</h3>
+                <div class="value" id="totalReturn">0%</div>
             </div>
         </div>
 
+        <!-- Search -->
         <div class="search-container">
-            <input type="text" class="search-box" id="searchBox" placeholder="🔍 Search cards by name...">
+            <input type="text" class="search-input" id="searchInput" placeholder="🔍 Search cards by name, cert #, or grade...">
         </div>
 
-        <div class="table-container">
-            <table id="cardsTable">
+        <!-- Table -->
+        <div class="table-wrapper">
+            <table id="cardTable">
                 <thead>
                     <tr>
-                        <th data-sort="image">Image</th>
-                        <th data-sort="cert">Cert # <span class="sort-indicator"></span></th>
-                        <th data-sort="name">Card Name <span class="sort-indicator"></span></th>
-                        <th data-sort="grade">Grade <span class="sort-indicator"></span></th>
-                        <th data-sort="costUsd" class="hide-mobile">Cost (USD) <span class="sort-indicator"></span></th>
-                        <th data-sort="costHkd" class="hide-mobile">Cost (HKD) <span class="sort-indicator"></span></th>
-                        <th data-sort="market">Market (HKD) <span class="sort-indicator"></span></th>
+                        <th data-sort="thumb">Image</th>
+                        <th data-sort="cert">Cert # <span class="sort-indicator">↕</span></th>
+                        <th data-sort="name">Card Name <span class="sort-indicator">↕</span></th>
+                        <th data-sort="grade">Grade <span class="sort-indicator">↕</span></th>
+                        <th data-sort="cost">Cost (HKD) <span class="sort-indicator">↕</span></th>
+                        <th data-sort="market">Market (HKD) <span class="sort-indicator">↕</span></th>
+                        <th data-sort="profit">P/L (HKD) <span class="sort-indicator">↕</span></th>
                     </tr>
                 </thead>
-                <tbody id="tableBody">
-                    <!-- Rows generated by JavaScript -->
+                <tbody id="cardTableBody">
+                    <!-- Cards will be populated by JavaScript -->
                 </tbody>
             </table>
-            <div class="no-results" id="noResults" style="display: none;">
-                <h3>No cards found</h3>
-                <p>Try adjusting your search query</p>
-            </div>
         </div>
 
-        <footer>
-            <p>Portfolio updated: April 18, 2026</p>
-            <p class="exchange-rate">Exchange Rate: 1 USD = 7.8 HKD</p>
-        </footer>
+        <div class="footer">
+            <p>PSA Card Portfolio Tracker • Built for Monkey D. Luffy</p>
+        </div>
     </div>
 
-    <!-- Modal -->
+    <!-- Image Modal -->
     <div class="modal" id="imageModal">
         <div class="modal-content">
             <button class="modal-close" id="modalClose">&times;</button>
-            <span class="modal-counter" id="modalCounter">1 / 25</span>
-            <button class="modal-nav prev" id="modalPrev">&#8249;</button>
-            <img class="modal-image" id="modalImage" src="" alt="Card">
-            <button class="modal-nav next" id="modalNext">&#8250;</button>
-            <div class="modal-info" id="modalInfo">
-                <h3 id="modalTitle">Card Name</h3>
-                <p id="modalDetails">Cert # | Grade</p>
-            </div>
+            <button class="modal-nav modal-prev" id="modalPrev">&#10094;</button>
+            <img class="modal-img" id="modalImg" src="" alt="Card Image">
+            <button class="modal-nav modal-next" id="modalNext">&#10095;</button>
+            <div class="modal-info" id="modalInfo"></div>
         </div>
     </div>
 
     <script>
         // Card data
         const cards = [
-            { cert: "146082512", name: "Vivi Playmat Heroines Cup", grade: "MINT 9", costUsd: 420, market: 3600, image: "146082512-2025 ONE PIECE JAPANESE PROMOS 012 NEFELTARI VIVI OFFICIAL PLAYMAT-HEROINES CUP -3ON3--Front-_vn1kzCTvEW_c4no5vxlvQ.jpg" },
-            { cert: "146082513", name: "Vivi Promo Pack EX Vol.3", grade: "PSA 10", costUsd: 250, market: 2200, image: "146082513-2025 ONE PIECE JAPANESE PROMOTION PACK EX VOL.3 026 NEFELTARI VIVI -Front-9hHfIlLaS0a2AGUzC2__EA.jpg" },
-            { cert: "146082514", name: "Nami Promo Pack EX Vol.3", grade: "PSA 10", costUsd: 270, market: 2400, image: "146082514-2025 ONE PIECE JAPANESE PROMOTION PACK EX VOL.3 106 NAMI-Front-j3fvvoPtVUCPBO6dqPnUlQ.jpg" },
-            { cert: "146082515", name: "Luffy Magazine Vol.20", grade: "PSA 10", costUsd: 340, market: 3100, image: "146082515-2025 ONE PIECE JAPANESE PROMOS 014 MONKEY D. LUFFY ONE PIECE MAGAZINE VOL.20-Front-bqmDF5ErsU6GGjZatIrwFA.jpg" },
-            { cert: "146082516", name: "Luffy Magazine Vol.20", grade: "PSA 10", costUsd: 340, market: 3100, image: "146082516-2025 ONE PIECE JAPANESE PROMOS 014 MONKEY D. LUFFY ONE PIECE MAGAZINE VOL.20-Front-CmvFRf-V8UaIG7gumMd41g.jpg" },
-            { cert: "146082517", name: "Tashigi Event Prize", grade: "PSA 10", costUsd: 270, market: 2300, image: "146082517-2025 ONE PIECE JAPANESE PROMOS 031 TASHIGI OFFICIAL EVENT PRIZE-Front-VHFlyJSyWEa_D3D1pEcjwg.jpg" },
-            { cert: "146082518", name: "Shanks 2nd Anniversary", grade: "PSA 10", costUsd: 240, market: 2000, image: "146082518-2025 ONE PIECE JAPANESE ENGLISH VERSION 2ND ANNIVERSARY SET 001 SHANKS-Front-NfkwRIThB0CA5AWLw1G0VQ.jpg" },
-            { cert: "146082519", name: "Buggy 2nd Anniversary", grade: "PSA 10", costUsd: 240, market: 1950, image: "146082519-2025 ONE PIECE JAPANESE ENGLISH VERSION 2ND ANNIVERSARY SET 042 BUGGY-Front-jBEJ6KLdxEOT95sRy09VBg.jpg" },
-            { cert: "146082520", name: "Luffy 2nd Anniversary", grade: "PSA 10", costUsd: 240, market: 2200, image: "146082520-2025 ONE PIECE JAPANESE ENGLISH VERSION 2ND ANNIVERSARY SET 061 MONKEY D. LUFFY-Front-ZOL9ytmOLUebb7CfdiIREA.jpg" },
-            { cert: "146082521", name: "Blackbeard 2nd Anniversary", grade: "PSA 10", costUsd: 240, market: 1950, image: "146082521-2025 ONE PIECE JAPANESE ENGLISH VERSION 2ND ANNIVERSARY SET 081 MARSHALL D. TEACH-Front-15IqPF_3f0iNeuFmc6i5qw.jpg" },
-            { cert: "146082522", name: "Shanks 2nd Anniversary (Alt)", grade: "PSA 10", costUsd: 240, market: 2000, image: "146082522-2025 ONE PIECE JAPANESE ENGLISH VERSION 2ND ANNIVERSARY SET 004 SHANKS-Front-RHIKCHlZlUSHI4nrj4F5tw.jpg" },
-            { cert: "146082523", name: "Buggy 2nd Anniversary", grade: "MINT 9", costUsd: 240, market: 1600, image: "146082523-2025 ONE PIECE JAPANESE ENGLISH VERSION 2ND ANNIVERSARY SET 051 BUGGY-Front-7uEU-OeQ5U6LJzU_laUUMw.jpg" },
-            { cert: "146082524", name: "Blackbeard 2nd Anniversary (Alt)", grade: "PSA 10", costUsd: 240, market: 1950, image: "146082524-2025 ONE PIECE JAPANESE ENGLISH VERSION 2ND ANNIVERSARY SET 093 MARSHALL D. TEACH-Front-BCXaiYwPu0mjtHybgVJrmQ.jpg" },
-            { cert: "146082525", name: "Luffy 2nd Anniversary (Alt)", grade: "PSA 10", costUsd: 240, market: 2200, image: "146082525-2025 ONE PIECE JAPANESE ENGLISH VERSION 2ND ANNIVERSARY SET 119 MONKEY D. LUFFY-Front-q1Ax70xMkkqKn6cFkF0ejQ.jpg" },
-            { cert: "146082526", name: "Boa Hancock Chinese New Year", grade: "PSA 10", costUsd: 270, market: 2500, image: "146082526-2025 ONE PIECE SIMPLIFIED CHINESE PROMOS 066 BOA HANCOCK CHINESE NEW YEAR'S RED PACK-Front-oopQR1ekhkGT1YO96BqS9w.jpg" },
-            { cert: "146082527", name: "Boa Hancock OP07 Manga Alt", grade: "PSA 10", costUsd: 270, market: 21840, image: "146082527-2024 ONE PIECE JAPANESE OP07-500 YEARS IN THE FUTURE 051 BOA HANCOCK ALTERNATE ART-Front-Ba09UBiV5kO8REm7Q9hhTw.jpg" },
-            { cert: "146082528", name: "Boa Hancock Chinese 2nd Anniversary", grade: "PSA 10", costUsd: 420, market: 3800, image: "146082528-2024 ONE PIECE SIMPLIFIED CHINESE 2ND ANNIVERSARY SET 051 BOA HANCOCK-Front-R7prEiRevEeL16cTosFOJQ.jpg" },
-            { cert: "146082529", name: "Boa Hancock Chinese 2nd Anniversary", grade: "PSA 10", costUsd: 420, market: 3800, image: "146082529-2024 ONE PIECE SIMPLIFIED CHINESE 2ND ANNIVERSARY SET 051 BOA HANCOCK-Front-B9CloQdtdkilEGkxZtX5jQ.jpg" },
-            { cert: "146082530", name: "Boa Hancock Chinese 2nd Anniversary", grade: "PSA 10", costUsd: 420, market: 3800, image: "146082530-2024 ONE PIECE SIMPLIFIED CHINESE 2ND ANNIVERSARY SET 051 BOA HANCOCK-Front-PLM6w5zpwECBooGGRu0gmw.jpg" },
-            { cert: "146082531", name: "Boa Hancock Chinese 2nd Anniversary", grade: "PSA 10", costUsd: 420, market: 3800, image: "146082531-2024 ONE PIECE SIMPLIFIED CHINESE 2ND ANNIVERSARY SET 051 BOA HANCOCK-Front-T0L34-W79Ui7wt4X4JTDDA.jpg" },
-            { cert: "146082532", name: "Boa Hancock Chinese 2nd Anniversary", grade: "PSA 10", costUsd: 420, market: 3800, image: "146082532-2024 ONE PIECE SIMPLIFIED CHINESE 2ND ANNIVERSARY SET 051 BOA HANCOCK-Front-CPDfcjLSWUaFJXdwHvThDA.jpg" },
-            { cert: "146082533", name: "Boa Hancock PSA Magazine Exclusive", grade: "PSA 10", costUsd: 170, market: 1600, image: "146082533-2025 ONE PIECE PROMOS 038 BOA HANCOCK PSA MAGAZINE EXCLUSIVE-Front-t4K7JI5rcE2GmOQ7cTdT8Q.jpg" },
-            { cert: "146082534", name: "Boa Hancock OP07 Alt Art", grade: "PSA 10", costUsd: 220, market: 1950, image: "146082534-2024 ONE PIECE JAPANESE OP07-500 YEARS IN THE FUTURE 038 BOA HANCOCK ALTERNATE ART-Front-oN8MeX2Ve0KSsOn-UG67CA.jpg" },
-            { cert: "146082535", name: "Luffy Mos Burger", grade: "PSA 10", costUsd: 210, market: 1850, image: "146082535-2024 ONE PIECE JAPANESE PROMOS 080 MONKEY D. LUFFY MOS BURGER-Front-u_7Z9v4c6Ee3urdGbzouTw.jpg" },
-            { cert: "146082536", name: "Luffy Bandai Card Games Fest", grade: "PSA 10", costUsd: 210, market: 1800, image: "146082536-2024 ONE PIECE JAPANESE PROMOS 080 MONKEY D. LUFFY BANDAI CARD GAMES FEST-Front-n-Q1H2JxtkKkLPpTZ4EXPg.jpg" }
+            { cert: "146082512", name: "Vivi Playmat Heroines Cup", grade: "MINT 9", cost: 420, market: 1800, image: "../psa_images/146082512-2025 ONE PIECE JAPANESE PROMOS 012 NEFELTARI VIVI OFFICIAL PLAYMAT-HEROINES CUP -3ON3--Front-_vn1kzCTvEW_c4no5vxlvQ.jpg" },
+            { cert: "146082513", name: "Vivi Promo Pack EX Vol.3", grade: "PSA 10", cost: 250, market: 2000, image: "../psa_images/146082513-2025 ONE PIECE JAPANESE PROMOTION PACK EX VOL.3 026 NEFELTARI VIVI -Front-9hHfIlLaS0a2AGUzC2__EA.jpg" },
+            { cert: "146082514", name: "Nami Promo Pack EX Vol.3", grade: "PSA 10", cost: 270, market: 2200, image: "../psa_images/146082514-2025 ONE PIECE JAPANESE PROMOTION PACK EX VOL.3 106 NAMI-Front-j3fvvoPtVUCPBO6dqPnUlQ.jpg" },
+            { cert: "146082515", name: "Luffy Magazine Vol.20", grade: "PSA 10", cost: 340, market: 1800, image: "../psa_images/146082515-2025 ONE PIECE JAPANESE PROMOS 014 MONKEY D. LUFFY ONE PIECE MAGAZINE VOL.20-Front-bqmDF5ErsU6GGjZatIrwFA.jpg" },
+            { cert: "146082516", name: "Luffy Magazine Vol.20", grade: "PSA 10", cost: 340, market: 1800, image: "../psa_images/146082516-2025 ONE PIECE JAPANESE PROMOS 014 MONKEY D. LUFFY ONE PIECE MAGAZINE VOL.20-Front-CmvFRf-V8UaIG7gumMd41g.jpg" },
+            { cert: "146082517", name: "Tashigi Event Prize", grade: "PSA 10", cost: 270, market: 2000, image: "../psa_images/146082517-2025 ONE PIECE JAPANESE PROMOS 031 TASHIGI OFFICIAL EVENT PRIZE-Front-VHFlyJSyWEa_D3D1pEcjwg.jpg" },
+            { cert: "146082518", name: "Shanks 2nd Anniversary", grade: "PSA 10", cost: 240, market: 1800, image: "../psa_images/146082518-2025 ONE PIECE JAPANESE ENGLISH VERSION 2ND ANNIVERSARY SET 001 SHANKS-Front-NfkwRIThB0CA5AWLw1G0VQ.jpg" },
+            { cert: "146082519", name: "Buggy 2nd Anniversary", grade: "PSA 10", cost: 240, market: 1800, image: "../psa_images/146082519-2025 ONE PIECE JAPANESE ENGLISH VERSION 2ND ANNIVERSARY SET 042 BUGGY-Front-jBEJ6KLdxEOT95sRy09VBg.jpg" },
+            { cert: "146082520", name: "Luffy 2nd Anniversary", grade: "PSA 10", cost: 240, market: 2000, image: "../psa_images/146082520-2025 ONE PIECE JAPANESE ENGLISH VERSION 2ND ANNIVERSARY SET 061 MONKEY D. LUFFY-Front-ZOL9ytmOLUebb7CfdiIREA.jpg" },
+            { cert: "146082521", name: "Blackbeard 2nd Anniversary", grade: "PSA 10", cost: 240, market: 1800, image: "../psa_images/146082521-2025 ONE PIECE JAPANESE ENGLISH VERSION 2ND ANNIVERSARY SET 081 MARSHALL D. TEACH-Front-15IqPF_3f0iNeuFmc6i5qw.jpg" },
+            { cert: "146082522", name: "Shanks 2nd Anniversary (Alt)", grade: "PSA 10", cost: 240, market: 1900, image: "../psa_images/146082522-2025 ONE PIECE JAPANESE ENGLISH VERSION 2ND ANNIVERSARY SET 004 SHANKS-Front-RHIKCHlZlUSHI4nrj4F5tw.jpg" },
+            { cert: "146082523", name: "Buggy 2nd Anniversary", grade: "MINT 9", cost: 240, market: 1200, image: "../psa_images/146082523-2025 ONE PIECE JAPANESE ENGLISH VERSION 2ND ANNIVERSARY SET 051 BUGGY-Front-7uEU-OeQ5U6LJzU_laUUMw.jpg" },
+            { cert: "146082524", name: "Blackbeard 2nd Anniversary (Alt)", grade: "PSA 10", cost: 240, market: 1900, image: "../psa_images/146082524-2025 ONE PIECE JAPANESE ENGLISH VERSION 2ND ANNIVERSARY SET 093 MARSHALL D. TEACH-Front-BCXaiYwPu0mjtHybgVJrmQ.jpg" },
+            { cert: "146082525", name: "Luffy 2nd Anniversary (Alt)", grade: "PSA 10", cost: 240, market: 2000, image: "../psa_images/146082525-2025 ONE PIECE JAPANESE ENGLISH VERSION 2ND ANNIVERSARY SET 119 MONKEY D. LUFFY-Front-q1Ax70xMkkqKn6cFkF0ejQ.jpg" },
+            { cert: "146082526", name: "Boa Hancock Chinese New Year", grade: "PSA 10", cost: 270, market: 2500, image: "../psa_images/146082526-2025 ONE PIECE SIMPLIFIED CHINESE PROMOS 066 BOA HANCOCK CHINESE NEW YEAR'S RED PACK-Front-oopQR1ekhkGT1YO96BqS9w.jpg" },
+            { cert: "146082527", name: "Boa Hancock OP07 Manga Alt", grade: "PSA 10", cost: 270, market: 21840, image: "../psa_images/146082527-2024 ONE PIECE JAPANESE OP07-500 YEARS IN THE FUTURE 051 BOA HANCOCK ALTERNATE ART-Front-Ba09UBiV5kO8REm7Q9hhTw.jpg" },
+            { cert: "146082528", name: "Boa Hancock Chinese 2nd Anniversary", grade: "PSA 10", cost: 420, market: 3800, image: "../psa_images/146082528-2024 ONE PIECE SIMPLIFIED CHINESE 2ND ANNIVERSARY SET 051 BOA HANCOCK-Front-R7prEiRevEeL16cTosFOJQ.jpg" },
+            { cert: "146082529", name: "Boa Hancock Chinese 2nd Anniversary", grade: "PSA 10", cost: 420, market: 3800, image: "../psa_images/146082529-2024 ONE PIECE SIMPLIFIED CHINESE 2ND ANNIVERSARY SET 051 BOA HANCOCK-Front-B9CloQdtdkilEGkxZtX5jQ.jpg" },
+            { cert: "146082530", name: "Boa Hancock Chinese 2nd Anniversary", grade: "PSA 10", cost: 420, market: 3800, image: "../psa_images/146082530-2024 ONE PIECE SIMPLIFIED CHINESE 2ND ANNIVERSARY SET 051 BOA HANCOCK-Front-PLM6w5zpwECBooGGRu0gmw.jpg" },
+            { cert: "146082531", name: "Boa Hancock Chinese 2nd Anniversary", grade: "PSA 10", cost: 420, market: 3800, image: "../psa_images/146082531-2024 ONE PIECE SIMPLIFIED CHINESE 2ND ANNIVERSARY SET 051 BOA HANCOCK-Front-T0L34-W79Ui7wt4X4JTDDA.jpg" },
+            { cert: "146082532", name: "Boa Hancock Chinese 2nd Anniversary", grade: "PSA 10", cost: 420, market: 3800, image: "../psa_images/146082532-2024 ONE PIECE SIMPLIFIED CHINESE 2ND ANNIVERSARY SET 051 BOA HANCOCK-Front-CPDfcjLSWUaFJXdwHvThDA.jpg" },
+            { cert: "146082533", name: "Boa Hancock PSA Magazine Exclusive", grade: "PSA 10", cost: 170, market: 1500, image: "../psa_images/146082533-2025 ONE PIECE PROMOS 038 BOA HANCOCK PSA MAGAZINE EXCLUSIVE-Front-t4K7JI5rcE2GmOQ7cTdT8Q.jpg" },
+            { cert: "146082534", name: "Boa Hancock OP07 Alt Art", grade: "PSA 10", cost: 220, market: 2000, image: "../psa_images/146082534-2024 ONE PIECE JAPANESE OP07-500 YEARS IN THE FUTURE 038 BOA HANCOCK ALTERNATE ART-Front-oN8MeX2Ve0KSsOn-UG67CA.jpg" },
+            { cert: "146082535", name: "Luffy Mos Burger", grade: "PSA 10", cost: 210, market: 1800, image: "../psa_images/146082535-2024 ONE PIECE JAPANESE PROMOS 080 MONKEY D. LUFFY MOS BURGER-Front-u_7Z9v4c6Ee3urdGbzouTw.jpg" },
+            { cert: "146082536", name: "Luffy Bandai Card Games Fest", grade: "PSA 10", cost: 210, market: 2000, image: "../psa_images/146082536-2024 ONE PIECE JAPANESE PROMOS 080 MONKEY D. LUFFY BANDAI CARD GAMES FEST-Front-n-Q1H2JxtkKkLPpTZ4EXPg.jpg" },
+            { cert: "146082537", name: "Luffy One Piece Day", grade: "PSA 10", cost: 370, market: 2500, image: "../psa_images/146082537-2024 ONE PIECE JAPANESE PROMOS 006 MONKEY D. LUFFY ONE PIECE DAY-Front-03pPKCWggkus4MOCXKQAUg.jpg" },
+            { cert: "146082538", name: "Zoro-Juurou Special Alt Art", grade: "PSA 10", cost: 470, market: 3500, image: "../psa_images/146082538-2024 ONE PIECE JAPANESE OP09-EMPERORS IN THE NEW WORLD 067 ZORO-JUUROU SPECIAL ALTERNATE ART-Front-bIQFhjSBhk6hyMxhHFbPbA.jpg" },
+            { cert: "146082539", name: "Mega Kangaskhan EX", grade: "MINT 9", cost: 370, market: 1500, image: "../psa_images/146082539-2025 POKEMON INDONESIAN MA1 I-MEGA EVOLUTION 178 MEGA KANGASKHAN EX SPECIAL ART RARE-Front-dqypB1u2PUq_g3faAq0Pfg.jpg" },
+            { cert: "146082540", name: "Mega Charizard X EX", grade: "PSA 10", cost: 2270, market: 3500, image: "../psa_images/146082540-2025 POKEMON MEP EN-ME BLACK STAR PROMO 023 MEGA CHARIZARD X EX MEGA CHARIZARD X ex ULTRA-PREMIUM COLLECTION-Front-K4hT0myy_k-seioY3dmwYg.jpg" },
+            { cert: "146082541", name: "Mega Charizard X EX", grade: "PSA 10", cost: 370, market: 450, image: "../psa_images/146082541-2025 POKEMON PFL EN-PHANTASMAL FLAMES 109 MEGA CHARIZARD X EX ULTRA RARE-Front-vDuvBm8YRUyz9eXkfv8GYw.jpg" },
+            { cert: "146082542", name: "Oricorio EX", grade: "PSA 10", cost: 370, market: 1800, image: "../psa_images/146082542-2025 POKEMON MEP EN-ME BLACK STAR PROMO 024 ORICORIO EX MEGA CHARIZARD X ex ULTRA-PREMIUM COLLECTION-Front-n6FnZkTWXEKP2B9eAqR-cA.jpg" },
+            { cert: "146082543", name: "Oricorio EX", grade: "PSA 10", cost: 270, market: 2000, image: "../psa_images/146082543-2025 POKEMON JAPANESE M2-INFERNO X 111 ORICORIO EX SPECIAL ART RARE-Front-6pzRBG-700KuhEZN5S4S2w.jpg" },
+            { cert: "146082544", name: "DON!! Card One Piece Day", grade: "PSA 10", cost: 370, market: 1200, image: "../psa_images/146082544-2024 ONE PIECE JAPANESE PROMOS DON!! CARD ONE PIECE DAY SPECIAL LIVE DAY1-Front-fadIV3bmGkm349t1L-hmAw.jpg" },
+            { cert: "146082545", name: "Luffy Weekly Shonen Jump", grade: "PSA 10", cost: 470, market: 1000, image: "../psa_images/146082545-2025 ONE PIECE JAPANESE PROMOS 012 MONKEY D. LUFFY WEEKLY SHONEN JUMP-ISSUE 19-Front-xUALnG3qSUKf-GOVynqNrQ.jpg" },
+            { cert: "146082546", name: "Sabo Weekly Shonen Jump", grade: "PSA 10", cost: 200, market: 900, image: "../psa_images/146082546-2025 ONE PIECE JAPANESE PROMOS 027 SABO WEEKLY SHONEN JUMP-ISSUE 19-Front-s6KoEHQwDESCS_dz3wwRwg.jpg" },
+            { cert: "146082547", name: "Ace Weekly Shonen Jump", grade: "PSA 10", cost: 200, market: 900, image: "../psa_images/146082547-2025 ONE PIECE JAPANESE PROMOS 053 PORTGAS D. ACE WEEKLY SHONEN JUMP-ISSUE 19-Front-PwlEwkk3VU-B7V9MwSgcRw.jpg" },
+            { cert: "146082548", name: "Luffy/Ace/Sabo Weekly Shonen Jump", grade: "PSA 10", cost: 200, market: 850, image: null },
+            { cert: "146082549", name: "Mega Lopunny EX", grade: "PSA 10", cost: 470, market: 2000, image: "../psa_images/146082549-2025 POKEMON PFL EN-PHANTASMAL FLAMES 128 MEGA LOPUNNY EX SPECIAL ILLUSTRATION RARE-Front-5uoEzZyNFUORdqtJdGvBUg.jpg" },
+            { cert: "146082550", name: "Lillie's Determination", grade: "MINT 9", cost: 370, market: 1200, image: "../psa_images/146082550-2025 POKEMON MEG EN-MEGA EVOLUTION 169 LILLIE'S DETERMINATION ULTRA RARE-Front-0DaSdpfbkkWYuL55yq73-A.jpg" }
         ];
 
-        const EXCHANGE_RATE = 7.8;
-        let currentSort = { column: null, direction: 'asc' };
-        let filteredCards = [...cards];
-        let currentModalIndex = 0;
-
-        // Calculate derived values
+        // Calculate profit/loss for each card
         cards.forEach(card => {
-            card.costHkd = Math.round(card.costUsd * EXCHANGE_RATE);
-            card.profit = card.market - card.costHkd;
-            card.returnPct = ((card.profit / card.costHkd) * 100).toFixed(2);
+            card.profit = card.market - card.cost;
         });
 
-        // Render table
-        function renderTable(data) {
-            const tbody = document.getElementById('tableBody');
-            const noResults = document.getElementById('noResults');
-            
-            if (data.length === 0) {
-                tbody.innerHTML = '';
-                noResults.style.display = 'block';
-                return;
-            }
-            
-            noResults.style.display = 'none';
-            
-            tbody.innerHTML = data.map((card, index) => `
-                <tr data-index="${index}">
-                    <td>
-                        <img class="card-thumb" 
-                             src="psa_images/${card.image}" 
-                             alt="${card.name}"
-                             onclick="openModal(${index})">
-                    </td>
-                    <td class="cert-number">${card.cert}</td>
-                    <td class="card-name">${card.name}</td>
-                    <td>
-                        <span class="grade ${card.grade === 'PSA 10' ? 'grade-psa10' : 'grade-mint9'}">
-                            ${card.grade}
-                        </span>
-                    </td>
-                    <td class="currency hide-mobile">$${card.costUsd.toLocaleString()}</td>
-                    <td class="currency hide-mobile">HK$${card.costHkd.toLocaleString()}</td>
-                    <td class="currency">HK$${card.market.toLocaleString()}</td>
-                </tr>
-            `).join('');
+        // State
+        let currentSort = { column: null, direction: 'asc' };
+        let currentModalIndex = 0;
+
+        // DOM elements
+        const tableBody = document.getElementById('cardTableBody');
+        const searchInput = document.getElementById('searchInput');
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImg');
+        const modalInfo = document.getElementById('modalInfo');
+        const modalClose = document.getElementById('modalClose');
+        const modalPrev = document.getElementById('modalPrev');
+        const modalNext = document.getElementById('modalNext');
+
+        // Format currency
+        function formatCurrency(value) {
+            return '$' + value.toLocaleString('en-HK');
         }
 
-        // Sort function
-        function sortData(column) {
+        // Render table
+        function renderTable(data = cards) {
+            tableBody.innerHTML = data.map((card, index) => {
+                const profitClass = card.profit >= 0 ? 'profit' : 'loss';
+                const gradeClass = card.grade === 'PSA 10' ? 'grade-10' : 'grade-9';
+                const thumbHtml = card.image 
+                    ? `<img src="${card.image}" alt="${card.name}" class="card-thumb" data-index="${index}">`
+                    : `<div class="no-image">No Image</div>`;
+                
+                return `
+                    <tr data-index="${index}">
+                        <td>${thumbHtml}</td>
+                        <td class="cert-number">${card.cert}</td>
+                        <td class="card-name">${card.name}</td>
+                        <td><span class="grade ${gradeClass}">${card.grade}</span></td>
+                        <td class="price price-cost">${formatCurrency(card.cost)}</td>
+                        <td class="price price-market">${formatCurrency(card.market)}</td>
+                        <td class="price ${profitClass}">${card.profit >= 0 ? '+' : ''}${formatCurrency(card.profit)}</td>
+                    </tr>
+                `;
+            }).join('');
+
+            // Add click handlers for images
+            document.querySelectorAll('.card-thumb').forEach(img => {
+                img.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    openModal(parseInt(img.dataset.index));
+                });
+            });
+        }
+
+        // Update summary
+        function updateSummary() {
+            const totalCost = cards.reduce((sum, c) => sum + c.cost, 0);
+            const totalMarket = cards.reduce((sum, c) => sum + c.market, 0);
+            const totalProfit = totalMarket - totalCost;
+            const totalReturn = ((totalProfit / totalCost) * 100).toFixed(1);
+
+            document.getElementById('totalCards').textContent = cards.length;
+            document.getElementById('totalCost').textContent = formatCurrency(totalCost);
+            document.getElementById('totalMarket').textContent = formatCurrency(totalMarket);
+            
+            const profitEl = document.getElementById('totalProfit');
+            profitEl.textContent = (totalProfit >= 0 ? '+' : '') + formatCurrency(totalProfit);
+            profitEl.parentElement.className = 'summary-card ' + (totalProfit >= 0 ? 'profit' : 'loss');
+            
+            document.getElementById('totalReturn').textContent = totalReturn + '%';
+        }
+
+        // Sort table
+        function sortTable(column) {
             const headers = document.querySelectorAll('th');
             headers.forEach(h => h.classList.remove('sort-asc', 'sort-desc'));
 
@@ -611,10 +586,10 @@
                 currentSort.direction = 'asc';
             }
 
-            const th = document.querySelector(`th[data-sort="${column}"]`);
-            if (th) th.classList.add(currentSort.direction === 'asc' ? 'sort-asc' : 'sort-desc');
+            const header = document.querySelector(`th[data-sort="${column}"]`);
+            header.classList.add(currentSort.direction === 'asc' ? 'sort-asc' : 'sort-desc');
 
-            filteredCards.sort((a, b) => {
+            const sorted = [...cards].sort((a, b) => {
                 let valA = a[column];
                 let valB = b[column];
 
@@ -628,100 +603,103 @@
                 return 0;
             });
 
-            renderTable(filteredCards);
+            renderTable(sorted);
+            filterTable(searchInput.value);
         }
 
-        // Search function
-        function filterCards(query) {
-            if (!query) {
-                filteredCards = [...cards];
-            } else {
-                const lowerQuery = query.toLowerCase();
-                filteredCards = cards.filter(card => 
-                    card.name.toLowerCase().includes(lowerQuery) ||
-                    card.cert.includes(query)
-                );
-            }
-            
-            if (currentSort.column) {
-                sortData(currentSort.column);
-            } else {
-                renderTable(filteredCards);
-            }
+        // Filter table
+        function filterTable(query) {
+            const rows = tableBody.querySelectorAll('tr');
+            const lowerQuery = query.toLowerCase();
+
+            rows.forEach(row => {
+                const text = row.textContent.toLowerCase();
+                if (text.includes(lowerQuery)) {
+                    row.classList.remove('hidden');
+                } else {
+                    row.classList.add('hidden');
+                }
+            });
         }
 
         // Modal functions
         function openModal(index) {
             currentModalIndex = index;
             updateModal();
-            document.getElementById('imageModal').classList.add('active');
+            modal.classList.add('active');
             document.body.style.overflow = 'hidden';
         }
 
         function closeModal() {
-            document.getElementById('imageModal').classList.remove('active');
+            modal.classList.remove('active');
             document.body.style.overflow = '';
         }
 
         function updateModal() {
-            const card = filteredCards[currentModalIndex];
-            document.getElementById('modalImage').src = `psa_images/${card.image}`;
-            document.getElementById('modalTitle').textContent = card.name;
-            document.getElementById('modalDetails').textContent = `Cert #${card.cert} | ${card.grade} | Market: HK$${card.market.toLocaleString()}`;
-            document.getElementById('modalCounter').textContent = `${currentModalIndex + 1} / ${filteredCards.length}`;
+            const card = cards[currentModalIndex];
+            if (card.image) {
+                modalImg.src = card.image;
+                modalImg.style.display = 'block';
+            } else {
+                modalImg.style.display = 'none';
+            }
+            modalInfo.textContent = `${card.name} — ${card.grade} — ${formatCurrency(card.market)}`;
         }
 
         function nextImage() {
-            currentModalIndex = (currentModalIndex + 1) % filteredCards.length;
+            // Find next card with image
+            let attempts = 0;
+            do {
+                currentModalIndex = (currentModalIndex + 1) % cards.length;
+                attempts++;
+            } while (!cards[currentModalIndex].image && attempts < cards.length);
             updateModal();
         }
 
         function prevImage() {
-            currentModalIndex = (currentModalIndex - 1 + filteredCards.length) % filteredCards.length;
+            // Find prev card with image
+            let attempts = 0;
+            do {
+                currentModalIndex = (currentModalIndex - 1 + cards.length) % cards.length;
+                attempts++;
+            } while (!cards[currentModalIndex].image && attempts < cards.length);
             updateModal();
         }
 
         // Event listeners
-        document.addEventListener('DOMContentLoaded', () => {
-            renderTable(cards);
-
-            // Sort headers
-            document.querySelectorAll('th[data-sort]').forEach(th => {
-                th.addEventListener('click', () => sortData(th.dataset.sort));
-            });
-
-            // Search
-            document.getElementById('searchBox').addEventListener('input', (e) => {
-                filterCards(e.target.value);
-            });
-
-            // Modal controls
-            document.getElementById('modalClose').addEventListener('click', closeModal);
-            document.getElementById('modalNext').addEventListener('click', nextImage);
-            document.getElementById('modalPrev').addEventListener('click', prevImage);
-
-            // Close modal on background click
-            document.getElementById('imageModal').addEventListener('click', (e) => {
-                if (e.target.id === 'imageModal') closeModal();
-            });
-
-            // Keyboard navigation
-            document.addEventListener('keydown', (e) => {
-                if (!document.getElementById('imageModal').classList.contains('active')) return;
-                
-                switch(e.key) {
-                    case 'Escape':
-                        closeModal();
-                        break;
-                    case 'ArrowRight':
-                        nextImage();
-                        break;
-                    case 'ArrowLeft':
-                        prevImage();
-                        break;
-                }
-            });
+        document.querySelectorAll('th[data-sort]').forEach(th => {
+            th.addEventListener('click', () => sortTable(th.dataset.sort));
         });
+
+        searchInput.addEventListener('input', (e) => filterTable(e.target.value));
+
+        modalClose.addEventListener('click', closeModal);
+        modalNext.addEventListener('click', nextImage);
+        modalPrev.addEventListener('click', prevImage);
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (!modal.classList.contains('active')) return;
+            
+            switch(e.key) {
+                case 'Escape':
+                    closeModal();
+                    break;
+                case 'ArrowRight':
+                    nextImage();
+                    break;
+                case 'ArrowLeft':
+                    prevImage();
+                    break;
+            }
+        });
+
+        // Initialize
+        renderTable();
+        updateSummary();
     </script>
 </body>
 </html>
